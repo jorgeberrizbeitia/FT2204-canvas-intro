@@ -79,8 +79,27 @@ ctx.beginPath()
 ctx.strokeStyle = "brown";
 ctx.setLineDash([]);
 ctx.arc(400, 120, 40, 0, Math.PI * 2)
+ctx.fillStyle = "orange"
 ctx.fill() // toma el ultimo color de relleno seleccionado
 
 ctx.stroke()
 ctx.closePath()
+
+
+// Images
+
+let img = new Image();
+img.src = "https://tinyurl.com/ironhack-pokemons/22.svg"
+
+img.addEventListener("load", () => {
+  ctx.drawImage(img, 400, 400, 150, 100)
+})
+
+
+let img2 = new Image();
+img2.src = "https://tinyurl.com/ironhack-pokemons/60.svg"
+
+img2.addEventListener("load", () => {
+  ctx.drawImage(img2, 400, 600, 140, 100)
+})
 
