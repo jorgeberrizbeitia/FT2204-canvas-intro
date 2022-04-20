@@ -103,3 +103,60 @@ img2.addEventListener("load", () => {
   ctx.drawImage(img2, 400, 600, 140, 100)
 })
 
+
+
+// let control = 0; // 201
+
+// function printSomething() {
+
+//   control++
+//   console.log("cualquier cosa", control)
+
+//   if (control < 200) {
+//     printSomething()
+//   }
+
+// }
+
+// printSomething()
+
+
+ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+let control = 0;
+let cubeX = 50;
+let cubeY = 50;
+let cubeW = 50;
+let cubeH = 50;
+let curvatura = 100
+
+function moveCube() {
+
+  // 1. borra el canvas
+  ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+  // 2. cambio de posicion de elementos
+  cubeX = cubeX + cubeX/curvatura
+  curvatura--
+  cubeY = cubeY + 2
+  // cubeH--
+  // cubeW--
+
+  // 3. dibujamos el elemento
+  ctx.fillStyle = "black";
+  // posX, posY, width, height
+  ctx.fillRect(cubeX, cubeY, cubeW, cubeH)
+
+  // 3 control y recursividad
+  control++
+  console.log(control)
+  if (control < 200) {
+    // moveCube()
+    // requestAnimationFrame( functionAHacerRecursiva )
+    requestAnimationFrame(moveCube) // 60fps => 120fps
+    // 1/60 invoca la funcion moveCube
+  }
+
+}
+
+moveCube()
